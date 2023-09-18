@@ -1,0 +1,19 @@
+<footer class="py-2">
+    <div class="container">
+        <div class="img-logo-footer">
+            <img src="/assets/logo-stackoverflow.svg" alt="" width="150">
+        </div>
+        <div class="footer-items-container">
+            <div *ngFor="let footerItem of footerItems">
+                <div class="list-title py-1">
+                    {{footerItem.listTitle}}
+                </div>
+                <div class="list-items">
+                    <div class="list-items-child py-1" *ngFor="let listItemChild of footerItem.listItems">
+                        {{listItemChild}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

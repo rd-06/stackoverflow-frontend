@@ -1,0 +1,18 @@
+.parent-container-main{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .main-title{
+        font-size: 22px;
+    }
+
+    .ask-question-btn{
+        background-color: hsl(206,100%,52%);
+        color: hsl(0,0%,100%);
+        padding: 10.4px;
+        font-size: 13px;
+        border-radius: 5px;
+    }
+}
