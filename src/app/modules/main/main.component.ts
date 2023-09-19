@@ -31,9 +31,14 @@ export class MainComponent {
             this.username = username;
             localStorage.setItem('username', username);
           },
-          error: (error) => console.log(error)
+          error: (error) => {
+            alert('Please ensure you have a stable internet connection 📶');
+            console.log(error);
+          }
         })
 
+    } else {
+      alert('Please complete all required fields.')
     }
   }
 

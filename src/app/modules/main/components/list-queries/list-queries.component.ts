@@ -25,7 +25,10 @@ export class ListQueriesComponent {
         next: (response: any) => {
           this.questions = response.data
         },
-        error: (error) => console.log(error)
+        error: (error) => {
+          alert('Please ensure you have a stable internet connection 📶');
+          console.log(error);
+        }
       })
   }
 

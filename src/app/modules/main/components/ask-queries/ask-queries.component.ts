@@ -38,12 +38,15 @@ export class AskQueriesComponent {
             this.bodyInput = '';
             this.tagsInput = '';
 
-            alert('🎉🎉🎉 question submitted 🎉🎉🎉')
+            alert('"Your question has been successfully submitted."')
           },
-          error: (error) => console.log(error)
+          error: (error) => {
+            alert('Please ensure you have a stable internet connection 📶');
+            console.log(error);
+          }
         });
     } else {
-      alert('❓❓❓ enter all fields ❓❓❓')
+      alert('Please complete all required fields.');
     }
   }
 

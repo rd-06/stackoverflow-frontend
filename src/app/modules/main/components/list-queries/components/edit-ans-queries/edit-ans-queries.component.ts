@@ -34,7 +34,10 @@ export class EditAnsQueriesComponent {
           localStorage.setItem('currentQuestion', JSON.stringify(response));
           this.getAllQuestions();
         },
-        error: (error) => { }
+        error: (error) => {
+          // alert('Please ensure you have a stable internet connection 📶');
+          console.log(error);
+        }
       })
 
   }
@@ -58,7 +61,7 @@ export class EditAnsQueriesComponent {
           error: (error) => { }
         })
     } else {
-      alert('enter somthing')
+      alert('Please complete all required fields.');
     }
   }
 
@@ -81,11 +84,13 @@ export class EditAnsQueriesComponent {
             localStorage.setItem('currentQuestion', JSON.stringify(response));
             this.getAllQuestions();
           },
-          error: (error) => { }
+          error: (error) => {
+            alert('Please ensure you have a stable internet connection 📶');
+          }
         })
 
     } else {
-      alert('enter somthing')
+      alert('Please complete all required fields.');
     }
 
   }
