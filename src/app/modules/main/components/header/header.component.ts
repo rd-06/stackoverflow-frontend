@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() {
+  username: any = '';
 
+  constructor() {
+    this.username = localStorage.getItem('username')
+  }
+
+  logout() {
+    localStorage.clear();
+    location.reload();
   }
 
 }

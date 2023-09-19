@@ -1,13 +1,13 @@
 <app-header></app-header>
 
-<ng-container *ngIf="username else continue">
+<ng-container *ngIf="!username else continue">
 
 
     <div class="container login-container">
         <div class="login-child">
             <div class="login-username">
                 <div>Username</div>
-                <input type="text" [(ngModel)]='usernameInput'>
+                <input type="text" maxlength="20" [(ngModel)]='usernameInput' (keyup.enter)="login(usernameInput)">
                 <button class="login-btn" (click)="login(usernameInput)">Log in
                 </button>
             </div>

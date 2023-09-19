@@ -9,12 +9,12 @@ export class QueryService {
   constructor(private http: HttpClient) { }
 
 
-  submitQuery(titleInput: string, bodyInput: string, tagsInput: string) {
-    return this.http.post(`http://localhost:4000/-submit-query`, { titleInput, bodyInput, tagsInput });
+  updateQuery(reqBody: any) {
+    return this.http.post(`http://localhost:4000/update-query`, { ...reqBody });
   }
 
   getAllQueries() {
-    return this.http.get(`http://localhost:4000/get-all-queries`);
+    return this.http.get(`http://localhost:4000/get-queries`);
   }
 
 }

@@ -7,6 +7,34 @@ header{
         display: flex;
         justify-content: space-between;
         padding-bottom: 5px;
+
+
+        .user-profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+
+            .user-name{
+                font-size: 17px;
+                color: black;
+                font-weight: 500;
+            }
+
+            .logout{
+                background-color: hsl(206,100%,52%);
+                color: hsl(0,0%,100%);
+                padding: 7px;
+                margin-left: 10px;
+                font-size: 13px;
+                border-radius: 5px;
+                width: max-content;
+                cursor: pointer;
+            }
+
+        }
+
+       
     }
     .img-logo{
         width: 10rem;

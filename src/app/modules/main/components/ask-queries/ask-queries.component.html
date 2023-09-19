@@ -2,7 +2,7 @@
     <div class="query-title">
         <div>Title</div>
         <div class="common-description">Be specific and imagine you’re asking a question to another person.</div>
-        <input type="text" [(ngModel)]='titleInput'>
+        <input type="text" [(ngModel)]='titleInput' (keyup.enter)="submitQuery()">
     </div>
     <div class="query-body">
         <div>Body</div>
@@ -12,7 +12,7 @@
     <div class="query-tags">
         <div>Tags</div>
         <div class="common-description">Add a tag to describe what your question is about.</div>
-        <input [(ngModel)]='tagsInput' type="text">
+        <input [(ngModel)]='tagsInput' type="text" (keyup.enter)="submitQuery()">
     </div>
     <button type="button" (click)="submitQuery()" class="query-submit">
         Submit

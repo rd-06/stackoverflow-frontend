@@ -1,32 +1,27 @@
 <div class="container">
     <div class="query-container">
         <div class="query-title">
-            Why is processing a sorted array faster than processing an unsorted array?
+            {{currentQuestion.questionMeta.title}}
         </div>
         <button class="back-btn" (click)="getAllQuestions()">
             Back to All Questions
         </button>
         <div class="query-body">
-            Initially, I thought this might be just a language or compiler anomaly, so I tried Java: import
-            java.util.Arrays; import java.util.Random; public class Main public static void mainString[] args …
+            {{currentQuestion.questionMeta.body}}
         </div>
         <div class="query-tags-container">
-            <div class="query-tags">
-                javascript
-            </div>
-            <div class="query-tags">
-                javascript
-            </div>
-            <div class="query-tags">
-                javascript
+            <div *ngFor="let tag of currentQuestion.questionMeta.tags">
+                <div class="query-tags">
+                    {{tag}}
+                </div>
             </div>
         </div>
         <div class="query-info">
-            <div class="query-accept">
-                Accepted
+            <div *ngIf="currentQuestion.answerMeta" class="query-accept">
+                {{currentQuestion.answerMeta.length}} Answers
             </div>
             <div class="query-user">
-                rishav
+                {{currentQuestion.createdBy}}
             </div>
         </div>
     </div>
@@ -34,12 +29,18 @@
 
     <div class="submitted-answers-container">
         <h5>Submitted Answers</h5>
-        <div class="submitted-answers">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nisi, libero magnam numquam ducimus aperiam
-            praesentium sunt. Officiis illo nisi, quisquam totam inventore magni est, atque doloremque modi minima qui!
-            <div class="accept-answer">
-                Accept
-            </div>
+        <div *ngFor="let answer of currentQuestion.answerMeta; let i = index" class="submitted-answers">
+            {{answer.data}}
+            <ng-container *ngIf="answer.isAccepted else accept">
+                <div class="accept-answer">
+                    Accepted
+                </div>
+            </ng-container>
+            <ng-template #accept>
+                <div class="accept-answer" (click)="acceptAnswer(i)">
+                    Accept
+                </div>
+            </ng-template>
         </div>
     </div>
 
@@ -48,7 +49,7 @@
         <div>
             <div>Edit Question</div>
             <div class="common-description">Be specific and imagine you’re asking a question to another person.</div>
-            <input type="text" [(ngModel)]='editedQuestion'>
+            <input type="text" [(ngModel)]='editedQuestion' (keyup.enter)="editQuesion()">
         </div>
         <div class=" edit-query-btn" (click)="editQuesion()">
             Edit
@@ -59,9 +60,9 @@
         <div>
             <div>Answer the Question</div>
             <div class="common-description">Be specific and imagine you’re asking a question to another person.</div>
-            <input type="text" [(ngModel)]='answer'>
+            <input type="text" [(ngModel)]='answer' (keyup.enter)="postQuestion()">
         </div>
-        <div class="edit-query-btn" (click)="submitAnswer()">
+        <div class="edit-query-btn" (click)="postQuestion()">
             Submit Answer
         </div>
     </div>

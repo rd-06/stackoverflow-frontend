@@ -1,31 +1,27 @@
 <ng-container *ngIf="!viewQuestion else viewQuestions">
 
     <div class="container mb-5">
-        <div class="query-container">
-            <div class="query-title" (click)="viewQuestionFnc()">
-                Why is processing a sorted array faster than processing an unsorted array?
+        <div *ngFor="let question of questions" class="query-container">
+            <div class="query-title" (click)="viewQuestionFnc(question)">
+                {{question.questionMeta.title}}
             </div>
             <div class="query-body">
-                Initially, I thought this might be just a language or compiler anomaly, so I tried Java: import
-                java.util.Arrays; import java.util.Random; public class Main public static void mainString[] args …
+                {{question.questionMeta.body}}
             </div>
             <div class="query-tags-container">
-                <div class="query-tags">
-                    javascript
-                </div>
-                <div class="query-tags">
-                    javascript
-                </div>
-                <div class="query-tags">
-                    javascript
+                <div *ngFor="let tag of question.questionMeta.tags">
+                    <div class="query-tags">
+                        {{tag}}
+                    </div>
                 </div>
             </div>
             <div class="query-info">
-                <div class="query-accept">
-                    Accepted
+                <div *ngIf="question.answerMeta" class="query-accept">
+                    {{question.answerMeta.length}} Answers
                 </div>
                 <div class="query-user">
-                    rishav
+                    {{question.createdBy}}
+                    <span class="query-asked"> asked {{question.createdAt}} </span>
                 </div>
             </div>
         </div>

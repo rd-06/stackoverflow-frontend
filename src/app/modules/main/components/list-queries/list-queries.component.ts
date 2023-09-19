@@ -9,6 +9,7 @@ import { QueryService } from 'src/app/services/query.service';
 export class ListQueriesComponent {
 
   viewQuestion: any = '';
+  questions: any;
 
   constructor(private queryService: QueryService) {
 
@@ -22,15 +23,18 @@ export class ListQueriesComponent {
   getAllQueries() {
     this.queryService.getAllQueries()
       .subscribe({
-        next: (response) => { },
+        next: (response: any) => {
+          console.log(response.data);
+          this.questions = response.data
+        },
         error: (error) => console.log(error)
       })
   }
 
-  viewQuestionFnc() {
+  viewQuestionFnc(question: any) {
     this.viewQuestion = true;
-    localStorage.setItem('viewQuestion', 'true')
-
+    localStorage.setItem('viewQuestion', 'true');
+    localStorage.setItem('currentQuestion', JSON.stringify(question));
   }
 
 }

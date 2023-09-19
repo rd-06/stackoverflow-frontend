@@ -22,19 +22,28 @@ export class AskQueriesComponent {
   submitQuery() {
     if (this.titleInput && this.bodyInput && this.tagsInput) {
 
-      this.queryService.submitQuery(this.titleInput, this.bodyInput, this.tagsInput)
+      const reqBody = {
+        questionMeta: {
+          title: this.titleInput,
+          body: this.bodyInput,
+          tags: this.tagsInput.split(/[,\s;]+/)
+        },
+        "createdBy": localStorage.getItem('username')
+      }
+
+      this.queryService.updateQuery({ ...reqBody })
         .subscribe({
           next: (response) => {
             this.titleInput = '';
             this.bodyInput = '';
             this.tagsInput = '';
 
-            alert('question submitted')
+            alert('🎉🎉🎉 question submitted 🎉🎉🎉')
           },
           error: (error) => console.log(error)
         });
     } else {
-      alert('enter all fields')
+      alert('❓❓❓ enter all fields ❓❓❓')
     }
   }
 
