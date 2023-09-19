@@ -23,7 +23,6 @@ export class EditAnsQueriesComponent {
 
   acceptAnswer(answer: any) {
 
-    console.log(this.currentQuestion.answerMeta[answer].isAccepted);
 
     const reqBody = {
       _question: this.currentQuestion._question,
@@ -41,9 +40,7 @@ export class EditAnsQueriesComponent {
   }
 
   editQuesion() {
-    console.log(this.editedQuestion);
     if (this.editedQuestion) {
-      console.log('yyyyyyyy');
       const reqBody = {
         _question: this.currentQuestion._question,
         questionMeta: {

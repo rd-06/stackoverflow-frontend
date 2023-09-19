@@ -15,7 +15,6 @@ export class ListQueriesComponent {
 
     this.viewQuestion = localStorage.getItem('viewQuestion');
 
-    console.log(this.viewQuestion);
     this.getAllQueries();
 
   }
@@ -24,7 +23,6 @@ export class ListQueriesComponent {
     this.queryService.getAllQueries()
       .subscribe({
         next: (response: any) => {
-          console.log(response.data);
           this.questions = response.data
         },
         error: (error) => console.log(error)
