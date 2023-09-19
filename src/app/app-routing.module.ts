@@ -4,7 +4,7 @@ import { MainComponent } from './modules/main/main.component';
 
 const routes: Routes = [
   {
-    path: ':user', component: MainComponent
+    path: '**', component: MainComponent
   }
 ];
 
