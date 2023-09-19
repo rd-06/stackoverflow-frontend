@@ -1,30 +1,38 @@
-<div class="container">
-    <div class="query-container">
-        <div class="query-title">
-            Why is processing a sorted array faster than processing an unsorted array?
-        </div>
-        <div class="query-body">
-            Initially, I thought this might be just a language or compiler anomaly, so I tried Java: import
-            java.util.Arrays; import java.util.Random; public class Main public static void mainString[] args …
-        </div>
-        <div class="query-tags-container">
-            <div class="query-tags">
-                javascript
+<ng-container *ngIf="!viewQuestion else viewQuestions">
+
+    <div class="container mb-5">
+        <div class="query-container">
+            <div class="query-title" (click)="viewQuestionFnc()">
+                Why is processing a sorted array faster than processing an unsorted array?
             </div>
-            <div class="query-tags">
-                javascript
+            <div class="query-body">
+                Initially, I thought this might be just a language or compiler anomaly, so I tried Java: import
+                java.util.Arrays; import java.util.Random; public class Main public static void mainString[] args …
             </div>
-            <div class="query-tags">
-                javascript
+            <div class="query-tags-container">
+                <div class="query-tags">
+                    javascript
+                </div>
+                <div class="query-tags">
+                    javascript
+                </div>
+                <div class="query-tags">
+                    javascript
+                </div>
             </div>
-        </div>
-        <div class="query-info">
-            <div class="query-accept">
-                Accepted
-            </div>
-            <div class="query-user">
-                rishav
+            <div class="query-info">
+                <div class="query-accept">
+                    Accepted
+                </div>
+                <div class="query-user">
+                    rishav
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</ng-container>
+
+<ng-template #viewQuestions>
+    <app-edit-ans-queries></app-edit-ans-queries>
+</ng-template>

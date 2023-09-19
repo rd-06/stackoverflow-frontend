@@ -7,6 +7,15 @@
     .query-title{
         font-size: 17px;
         color: hsl(206,100%,40%);
+        cursor: pointer;
+    }
+
+    button{
+        color: #ffffff;
+        background-color: #2f6f44;
+        padding: 2px 4px;
+        font-size: 13px;
+        border-radius: 5px;
     }
 
     .query-body{

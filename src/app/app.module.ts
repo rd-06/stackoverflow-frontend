@@ -8,6 +8,9 @@ import { HeaderComponent } from './modules/main/components/header/header.compone
 import { FooterComponent } from './modules/main/components/footer/footer.component';
 import { ListQueriesComponent } from './modules/main/components/list-queries/list-queries.component';
 import { AskQueriesComponent } from './modules/main/components/ask-queries/ask-queries.component';
+import { EditAnsQueriesComponent } from './modules/main/components/list-queries/components/edit-ans-queries/edit-ans-queries.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { AskQueriesComponent } from './modules/main/components/ask-queries/ask-q
     HeaderComponent,
     FooterComponent,
     ListQueriesComponent,
-    AskQueriesComponent
+    AskQueriesComponent,
+    EditAnsQueriesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
