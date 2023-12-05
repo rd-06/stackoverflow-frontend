@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="query-container">
+        <div class="query-title">
+            {{currentQuestion.questionMeta.title}}
+        </div>
+        <button class="back-btn" (click)="getAllQuestions()">
+            Back to All Questions
+        </button>
+        <div class="query-body">
+            {{currentQuestion.questionMeta.body}}
+        </div>
+        <div class="query-tags-container">
+            <div *ngFor="let tag of currentQuestion.questionMeta.tags">
+                <div class="query-tags">
+                    {{tag}}
+                </div>
+            </div>
+        </div>
+        <div class="query-info">
+            <div *ngIf="currentQuestion.answerMeta" class="query-accept">
+                {{currentQuestion.answerMeta.length}} Answers
+            </div>
+            <div class="query-user">
+                {{currentQuestion.createdBy}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="submitted-answers-container">
+        <h5>Submitted Answers</h5>
+        <div *ngFor="let answer of currentQuestion.answerMeta; let i = index" class="submitted-answers">
+            {{answer.data}}
+            <ng-container *ngIf="answer.isAccepted else accept">
+                <div class="accept-answer">
+                    Accepted
+                </div>
+            </ng-container>
+            <ng-template #accept>
+                <div class="accept-answer" (click)="acceptAnswer(i)">
+                    Accept
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+    <div class="edit-query">
+        <div>
+            <div>Edit Question</div>
+            <div class="common-description">Be specific and imagine you’re asking a question to another person.</div>
+            <input type="text" [(ngModel)]='editedQuestion' (keyup.enter)="editQuesion()">
+        </div>
+        <div class=" edit-query-btn" (click)="editQuesion()">
+            Edit
+        </div>
+    </div>
+
+    <div class="answer-query">
+        <div>
+            <div>Answer the Question</div>
+            <div class="common-description">Be specific and imagine you’re asking a question to another person.</div>
+            <input type="text" [(ngModel)]='answer' (keyup.enter)="postQuestion()">
+        </div>
+        <div class="edit-query-btn" (click)="postQuestion()">
+            Submit Answer
+        </div>
+    </div>
+
+
+</div>

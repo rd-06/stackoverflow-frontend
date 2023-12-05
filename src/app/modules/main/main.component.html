@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<ng-container *ngIf="!username else continue">
+
+
+    <div class="container login-container">
+        <div class="login-child">
+            <div class="login-username">
+                <div>Username</div>
+                <input type="text" maxlength="20" [(ngModel)]='usernameInput' (keyup.enter)="login(usernameInput)">
+                <button class="login-btn" (click)="login(usernameInput)">Log in
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-template #continue>
+
+
+
+    <div class="container parent-container-main">
+        <ng-container *ngIf="questionBtnValue === 'Ask Question' else allQuestions">
+            <div class="main-title">
+                All Questions
+            </div>
+        </ng-container>
+        <ng-template #allQuestions>
+            <div class="main-title">
+                Ask Your Question
+            </div>
+        </ng-template>
+        <button class="question-btn" (click)="questionBtn()">
+            {{questionBtnValue}}
+        </button>
+    </div>
+
+
+    <ng-container *ngIf="questionBtnValue === 'Ask Question' else askQuestion">
+        <app-list-queries></app-list-queries>
+    </ng-container>
+    <ng-template #askQuestion>
+        <app-ask-queries></app-ask-queries>
+    </ng-template>
+
+
+</ng-template>
+
+<app-footer></app-footer>
